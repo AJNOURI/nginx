@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y nginx
 RUN apt-get install -y php5-fpm
 
 ADD default /etc/nginx/sites-available/default
+ADD default-lb /default-lb
 ADD test.php /usr/share/nginx/html/test.php
 
 RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php5/fpm/php.ini
