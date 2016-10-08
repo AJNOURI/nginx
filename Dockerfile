@@ -17,4 +17,6 @@ RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php5/fpm/php.ini
 
 RUN rm -rf /var/lib/apt/lists/*
 RUN mkdir data
-VOLUME /data
+VOLUME ["/etc/nginx", "/usr/share/nginx"]
+ENTRYPOINT ["start-server.sh"]
+
