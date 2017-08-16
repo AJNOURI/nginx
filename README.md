@@ -1,8 +1,6 @@
-####Docker container nginx server container + php5-fpm
+####  Docker container iwith nginx & php5-fpm
 
 ----------------
 
-After spawning the container, start both nginx and php5-fpm services:
-
-	service nginx start
-	service php5-fpm start
+Thanks to runit installed in the docker base container Phusion/docker-base,
+nginx and php5-fpm are started and managed at container start.
