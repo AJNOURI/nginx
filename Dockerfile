@@ -28,8 +28,8 @@ RUN ln -s /etc/sv/php5-fpm /etc/service
 # mount /home/wwww-data as remote FS
 ENV HOME /home/www-data
 RUN echo "www-data:nginxpasswd" | chpasswd
-RUN useradd --create-home --home-dir $HOME \
-    && chown -R www-data:www-data $HOME 
+RUN mkdir /home/www-data
+RUN chown -R www-data:www-data $HOME 
 
 RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php5/fpm/php.ini
 
