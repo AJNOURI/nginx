@@ -24,13 +24,6 @@ ADD php5-fpm-run /etc/sv/php5-fpm/run
 RUN chmod a+x /etc/sv/php5-fpm/run
 RUN ln -s /etc/sv/php5-fpm /etc/service
 
-# Add the appropriate user for nginx to be able to
-# mount /home/wwww-data as remote FS
-ENV HOME /home/www-data
-RUN echo "www-data:nginxpasswd" | chpasswd
-RUN mkdir /home/www-data
-RUN chown -R www-data:www-data $HOME 
-
 RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php5/fpm/php.ini
 
 RUN rm -rf /var/lib/apt/lists/*
