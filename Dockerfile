@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y nginx php5-fpm sshfs
 ADD default /etc/nginx/sites-available/default
 ADD default-lb /default-lb
 ADD test.php /usr/share/nginx/html/test.php
-ADD index.html /usr/share/nginx/html/index.php
+ADD index.html /usr/share/nginx/html/index.html
+ADD .htaccess /usr/share/nginx/html/.htaccess
 
 # Add nginx daemon to runit
 RUN mkdir /etc/sv/nginx
