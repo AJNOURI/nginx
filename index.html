@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+Current time: <input type="text" id="currentTime">
+<p>
+
+<?php
+header('Content-Type: text/plain');
+echo "Server IP: ".$_SERVER['SERVER_ADDR'];
+echo "\nClient IP: ".$_SERVER['REMOTE_ADDR'];
+echo "\nIP used by client = ".$_SERVER['HTTP_HOST'];
+echo "\nX-Forwarded-for: ".$_SERVER['HTTP_X_FORWARDED_FOR'];
+echo "\nDNS name used by client = ".$_SERVER['SERVER_NAME'];
+?>
+
+<script>
+var today = new Date();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  document.getElementById("currentTime").value = time;
+</script>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
